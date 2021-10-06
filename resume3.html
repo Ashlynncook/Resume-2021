@@ -17,25 +17,14 @@
         <h1 class="display-6"><center>Ashlynncook24@gmail.com</center></h1>
         <br>
 
-<!--My Button-->
-        <div class="text-center m-5">
+<!--Button-->
 
-          <button id="mybutton" type="button" class="btn btn-outline-dark">
-            Push me
-          </button>
+        <button id="myButton" type="button" class="btn btn-outline-dark"><center></center>Push me</button>
 
-        </div>
-
-<!--Loading Button-->
-        <div class="text-center m-5">
-
-          <button id="myLoadingButton" type="button" class="btn btn-outline-dark">
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-              Loading
-          </button>
-
-        </div>
-
+        <button id="myButton" type="button" class="btn btn-outline-dark">
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Loading
+        </button>
 
  <!--Skills Beginning-->
  
@@ -203,7 +192,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Let's go then!</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
@@ -217,37 +206,15 @@
         document.addEventListener("DOMContentLoaded", function(event) {
           console.log("hello")
           
-          //Date
-
-
           //modal event
           var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
             keyboard: false
           })
           myModal.show();
 
-          //button event
-          var myButton = document.getElementById("myButton");
-          var myLoadingButton = document.getElementById("myLoadingButton");
-          myButton.onclick = function(){
-            //console.log(myButton)
-            //show Loading Button
-            this.style.display = "none"
-            myLoadingButton.style.display = "block"
-
-            //show original button after 5s
-            setTimeout(function(){
-              if(myButton.style.display == "none") {
-                console.log('hidden!');
-                myButton.style.display = "block";
-                myLoadingButton.style.display = "none";
-              }
-            }, 1000);
-          }//onclick
-
-
-
-
+          //button
+          var button = document.getElementById('myButton')
+          var bsButton = new bootstrap.Button(button)
           
         }); //ready state;
 
