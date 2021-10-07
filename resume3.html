@@ -18,13 +18,15 @@
         <br>
 
 <!--Button-->
+        <a id="myButton" href="http://www.ashlynncookdesigns.com/" target="_blank">
+          <button class="btn btn-outline-dark"><center>Click here!</center></button>
+        </a>
 
-        <button id="myButton" type="button" class="btn btn-outline-dark"><center></center>Push me</button>
-
-        <button id="myButton" type="button" class="btn btn-outline-dark">
+        <button id="myLoadingButton" class="btn btn-outline-danger" style="display:none;">
           <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
           Loading
         </button>
+
 
  <!--Skills Beginning-->
  
@@ -179,6 +181,8 @@
 
 <!--Experiences Ending-->
 
+<!--Footer-->
+
 <!--Modal-->
         <div id="myModal" class="modal" tabindex="-1">
           <div class="modal-dialog">
@@ -205,6 +209,9 @@
       <script>
         document.addEventListener("DOMContentLoaded", function(event) {
           console.log("hello")
+
+          //var now = Date.now();
+          //document.getElementById("dateNow").innerHTML = now;
           
           //modal event
           var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
@@ -213,9 +220,25 @@
           myModal.show();
 
           //button
-          var button = document.getElementById('myButton')
-          var bsButton = new bootstrap.Button(button)
-          
+          var myButton = document.getElementById("myButton");
+          var myLoadingButton = document.getElementById("myLoadingButton");
+          myButton.onclick = function(e){
+            e.preventDefault();
+            var url = this.getAttribute("href");
+            var target = this.getAttribute("target");
+            console.log(url);
+
+            this.style.display = "none";
+            myLoadingButton.style.display = "block";
+
+            setTimeout(function(){
+              if(myButton.style.display == "none") {
+              window.open(url,target);
+              myButton.style.display = "inline-block";
+              myLoadingButton.style.display = "none";
+              }
+            }, 2000);
+          }//onclick
         }); //ready state;
 
 
