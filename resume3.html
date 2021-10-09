@@ -182,8 +182,10 @@
 <!--Experiences Ending-->
 
 <!--Footer-->
-        <footer class="my-footer">
-          <p><i class="fas fa-dumpster-fire"></i> &nbsp; <em</p>
+
+
+        <footer>
+          <p><i class="fas fa-dumpster-fire"></i> &nbsp; <em>Last viewed: <span id="displayDateTime"></span></em></p>
         </footer>
 
 <!--Modal-->
@@ -213,11 +215,16 @@
         document.addEventListener("DOMContentLoaded", function(event) {
           console.log("hello")
 
-          //var now = Date.now();
-          //document.getElementById("dateNow").innerHTML = now;
+          //Date
+          var today = new Date();
+          var day = today.getDay();
+          var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
+          var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+          var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+          var dateTime = date+' '+time;
           
-          var now = Date.now();
-          document.getElementById("dateNow").innerHTML = now;
+          document.getElementById("displayDateTime").innerHTML = dateTime + ' ' + daylist[day];
+
 
           //modal event
           var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
